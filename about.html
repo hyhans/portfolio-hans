@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280">
     <title>About - Hans</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,6 @@
             border-color: var(--color-primary) !important;
             box-shadow: 0 10px 25px rgba(0, 240, 255, 0.25), inset 0 0 10px rgba(0, 240, 255, 0.1);
         }
-        /* Style untuk kursor kedip efek ketik */
         .typing-cursor {
             display: inline-block;
             background-color: var(--color-primary);
@@ -65,12 +64,10 @@
 
     <!-- Hero / About Section -->
     <section id="about" style="position: relative; background-color: #050508; min-height: calc(100vh - 120px); padding: 80px 24px 40px; display: flex; align-items: flex-start; overflow: hidden;">
-      <!-- Canvas Sirkuit Partikel Bergerak -->
       <canvas id="circuit-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
 
       <div class="about-container" style="position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; max-width: 1200px; margin: 0 auto; gap: 30px; padding: 0;">
         
-        <!-- Badge Status -->
         <div>
           <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 240, 255, 0.1); border: 1px solid rgba(0, 240, 255, 0.3); padding: 6px 14px; border-radius: 50px;">
             <span style="width: 8px; height: 8px; background-color: #10B981; border-radius: 50%; box-shadow: 0 0 8px #10B981; display: inline-block;"></span>
@@ -78,18 +75,14 @@
           </div>
         </div>
 
-        <!-- Row Utama (Teks Kiri & Foto Kanan Sejajar) -->
         <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; width: 100%;">
           
-          <!-- Bagian Teks Kiri -->
           <div class="about-left" style="flex: 1; min-width: 0;">
             <h1 style="margin-bottom: 10px; color: #FFFFFF; font-weight: 800; font-size: 2.3rem; text-shadow: 0 0 6px rgba(255,255,255,0.5);">Hello, I am Michael Hans Saputra</h1>
             <h2 style="color: #33F3FF; font-size: 1.8rem; margin-bottom: 20px; text-shadow: 0 0 6px rgba(0, 240, 255, 0.3);">Tech Enthusiast & Developer</h2>
             
-            <!-- Paragraf Efek Ketik Mulus -->
             <p id="typed-bio" style="color: #CBD5E1; font-weight: 500; line-height: 1.8; margin-bottom: 25px; min-height: 80px;"></p>
             
-            <!-- Tombol Aksi -->
             <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
               <button class="btn btn-primary" id="openProjectModal">Start a Project</button>
               <a href="https://www.skills.google/public_profiles/914365de-9620-4369-8755-f34206881a8c" target="_blank" class="btn btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
@@ -98,24 +91,20 @@
             </div>
           </div>
           
-          <!-- Bagian Foto Kanan (Lingkaran Putih) -->
           <div class="about-right" style="flex-shrink: 0; display: flex; justify-content: center; align-items: flex-start; padding-top: 5px;">
             <img src="foto-hans1.png.jpeg" alt="Hans" class="glow-circle" style="width: 280px; height: 280px; object-fit: cover; border-radius: 50%; border: 4px solid #FFFFFF; box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.4);">
           </div>
 
         </div>
 
-        <!-- Bio Cards Bawah (Education & Organization) -->
         <div class="bio-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; margin-top: 10px;">
           
-          <!-- Kartu Education -->
           <a href="https://www.instagram.com/unas1949?igsh=MXNhZGRtazZ3NGQ0cw==" target="_blank" class="glass bio-card-item" style="padding: 20px; border-radius: 12px; border: 1px solid rgba(0, 240, 255, 0.2); transition: all 0.3s ease; text-decoration: none; display: block; color: inherit;">
             <div style="color: var(--color-primary); font-size: 1.2rem; margin-bottom: 8px;"><i class="fa-solid fa-graduation-cap"></i></div>
             <h4 style="color: #FFFFFF; font-size: 1rem; margin-bottom: 5px;">Education <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem; opacity: 0.7; margin-left: 4px;"></i></h4>
             <p style="color: #CBD5E1; font-size: 0.85rem; line-height: 1.5;">Michael Hans Saputra<br>Universitas Nasional (Informatics)</p>
           </a>
 
-          <!-- Kartu Organization -->
           <a href="https://www.instagram.com/himtiunas?igsh=MWdvdGxwZzJiaXZjaQ==" target="_blank" class="glass bio-card-item" style="padding: 20px; border-radius: 12px; border: 1px solid rgba(0, 240, 255, 0.2); transition: all 0.3s ease; text-decoration: none; display: block; color: inherit;">
             <div style="color: var(--color-primary); font-size: 1.2rem; margin-bottom: 8px;"><i class="fa-solid fa-users-rectangle"></i></div>
             <h4 style="color: #FFFFFF; font-size: 1rem; margin-bottom: 5px;">Organization <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem; opacity: 0.7; margin-left: 4px;"></i></h4>
@@ -132,11 +121,8 @@
         <div class="footer-content">
             <p>Have an interesting idea? Don't hesitate to contact me!</p>
             <div class="social-links">
-                <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/michael-hans-saputra-29012b420?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <!-- Instagram -->
                 <a href="https://www.instagram.com/hanssxy?igsh=NGhneWM2cGVuNTFu" target="_blank" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <!-- GitHub -->
                 <a href="#" target="_blank" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
             </div>
             <p class="copyright">&copy; 2026 Hans. All Rights Reserved.</p>
@@ -197,9 +183,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js?v=9999"></script>
 
-    <!-- Script Animasi Partikel & Efek Ketik yang Dioptimalkan -->
     <script>
-    // 1. Animasi Partikel Sirkuit (Dioptimalkan agar ringan)
     const canvas = document.getElementById('circuit-canvas');
     const ctx = canvas.getContext('2d');
 
@@ -256,7 +240,6 @@
     }
     animateCircuit();
 
-    // 2. Efek Ketik Teroptimasi (Mulus, Cepat, Tanpa Ngeleg Awal)
     const textToType = "Passionate about crafting elegant web experiences, exploring cutting-edge technologies, and turning ideas into reality. I combine design sense with solid development skills to deliver premium digital products.";
     const typedElement = document.getElementById("typed-bio");
     let charIndex = 0;
@@ -265,11 +248,10 @@
         if (charIndex < textToType.length) {
             typedElement.innerHTML += textToType.charAt(charIndex);
             charIndex++;
-            setTimeout(typeText, 10); // Kecepatan ngetik disesuaikan agar smooth
+            setTimeout(typeText, 10);
         }
     }
 
-    // Mulai setelah halaman siap sepenuhnya agar tidak bentrok dengan rendering awal
     window.addEventListener("load", () => {
         setTimeout(typeText, 200);
     });
