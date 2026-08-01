@@ -777,62 +777,60 @@ footer {
 }
 
 /* =========================================
-   UPDATE: Navbar Tetap di ATAS untuk Layar HP (Mobile)
+   UPDATE: Navbar Tetap di ATAS untuk Layar HP (Mobile) - Clean & Dark Locked
    ========================================= */
 @media (max-width: 900px) {
-    /* 1. Paksa Navigasi Tetap di Atas (Header) */
+    /* 1. Paksa Navigasi Tetap di Atas dengan Dark Mode Penuh */
     nav {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        background: rgba(13, 18, 38, 0.95) !important;
+        background: rgba(5, 5, 8, 0.98) !important;
         backdrop-filter: blur(15px) !important;
-        padding: 10px 0 !important;
+        padding: 12px 15px !important;
         z-index: 9999 !important;
+        border-bottom: 1px solid rgba(0, 240, 255, 0.15) !important;
     }
 
     .nav-container {
-        padding: 0 15px !important;
-        flex-wrap: wrap !important;
-        gap: 10px !important;
+        padding: 0 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
     }
 
-    /* 2. Atur Tata Letak Menu Navigasi Biar Rapi di Atas */
+    /* 2. Sembunyikan total tombol tema, daun, dan bahasa di HP */
+    #theme-toggle, 
+    #zen-toggle,
+    #lang-toggle,
+    .nav-right {
+        display: none !important;
+    }
+
+    /* 3. Menu Navigasi disejajarkan rapi langsung di sebelah kanan logo */
     .nav-links {
         display: flex !important;
         position: static !important;
-        width: 100% !important;
-        justify-content: center !important;
-        gap: 15px !important;
+        gap: 12px !important;
         background: transparent !important;
         padding: 0 !important;
         border: none !important;
-        order: 2;
     }
 
     .nav-links a {
-        font-size: 0.8rem !important;
-        padding: 2px 4px !important;
+        font-size: 0.78rem !important;
+        padding: 0 !important;
     }
 
-    /* 3. Logo dan Menu Kanan (Bahasa & Tema) Sejajar di Baris Atas */
+    /* 4. Ukuran Logo disesuaikan agar pas satu baris */
     .logo {
-        font-size: 1.2rem !important;
-        display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
+        font-size: 1.25rem !important;
     }
 
-    .nav-right {
-        margin-left: auto !important;
-        gap: 10px !important;
-        order: 1;
-    }
-
-    /* 4. Reset Padding Body Supaya Konten Tidak Tertutup Header Atas */
+    /* 5. Jarak atas body pas agar konten tidak tertutup header */
     body {
         padding-bottom: 0 !important;
-        padding-top: 90px !important;
+        padding-top: 75px !important;
     }
 }
