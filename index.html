@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - Hans</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css?v=9999">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<style>
+#preloader { display: none !important; pointer-events: none !important; }
+.cursor-dot, .cursor-outline { display: none !important; pointer-events: none !important; }
+html, body { background-color: #050508 !important; overflow: hidden !important; margin: 0; padding: 0; width: 100vw; height: 100vh; }
+
+.earth-glow-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.18) 0%, rgba(0, 240, 255, 0.04) 50%, transparent 75%);
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(50px);
+}
+</style>
+</head>
+<body class="home">
+
+<div class="earth-glow-overlay"></div>
+
+<!-- Container Globe -->
+<div id="globe-bg"></div>
+
+<!-- Navigation -->
+<nav style="position: relative; z-index: 10;">
+<div class="nav-container">
+<a href="index.html" class="logo">Hans<span>.</span></a>
+<div class="nav-right">
+<div class="nav-links">
+<a href="index.html" class="active">Home</a>
+<a href="about.html">About Me</a>
+<a href="skills.html">Skills</a>
+<a href="services.html">Services</a>
+</div>
+<button id="lang-toggle" class="theme-btn" title="Change Language">EN</button>
+<button id="zen-toggle" class="theme-btn" title="Zen Mode"><i class="fa-solid fa-leaf"></i></button>
+<button id="theme-toggle" class="theme-btn"><i class="fa-solid fa-moon"></i></button>
+</div>
+</div>
+</nav>
+
+<section id="home" class="hero" style="height: 100vh; pointer-events: none; position: relative; z-index: 2;"></section>
+
+<!-- Footer -->
+<footer id="contact" style="position: fixed; bottom: 0; width: 100%; z-index: 10; background: transparent; border: none;">
+<div class="footer-content">
+<p style="text-shadow: 0 2px 10px rgba(0,0,0,0.9);">Have an interesting idea? Don't hesitate to contact me!</p>
+<div class="social-links">
+<a href="https://www.linkedin.com/in/michael-hans-saputra-29012b420" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+<a href="https://www.instagram.com/hanssxy" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+<a href="#" class="social-icon"><i class="fa-brands fa-github"></i></a>
+</div>
+<p class="copyright">&copy; 2026 Hans. All Rights Reserved.</p>
+</div>
+</footer>
+
+<!-- Popup Modal -->
+<div class="modal-overlay" id="contactModal" style="z-index: 10000;">
+<div class="modal-content glass">
+<button class="close-modal" id="closeModal">&times;</button>
+<h3>Start a Project</h3>
+<p>Please leave a message, I will get back to you as soon as possible!</p>
+<form class="contact-form" id="projectForm">
+<div class="form-group"><input type="text" placeholder="Your Name" required></div>
+<div class="form-group"><input type="email" placeholder="Your Email" required></div>
+<div class="form-group"><textarea rows="4" placeholder="Tell me about your project..." required></textarea></div>
+<button type="submit" class="btn btn-primary w-100">Send Message</button>
+</form>
+</div>
+</div>
+
+<!-- Standard Scripts -->
+<script src="script.js?v=9999"></script>
+
+<!-- ES6 Module untuk Render Globe 3D Murni Tanpa Arcs -->
+<script type="module">
+import Globe from 'https://esm.sh/globe.gl';
+
+const container = document.getElementById('globe-bg');
+if (container) {
+    const world = Globe()(container)
+        .backgroundColor('#050508')
+        .showAtmosphere(true)
+        .atmosphereColor('#00f0ff')
+        .atmosphereAltitude(0.25)
+        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
+        .width(window.innerWidth)
+        .height(window.innerHeight - 150);
+
+    world.controls().autoRotate = true;
+    world.controls().autoRotateSpeed = 0.8;
+    world.controls().enableZoom = false;
+
+    world.pointOfView({ lat: 25, lng: 0, altitude: 2.3 });
+
+    fetch('https://unpkg.com/globe.gl/example/datasets/ne_110m_admin_0_countries.geojson')
+        .then(res => res.json())
+        .then(countries => {
+            world.polygonsData(countries.features)
+                .polygonCapColor(() => 'rgba(0, 0, 0, 0)')
+                .polygonSideColor(() => 'rgba(0, 0, 0, 0)')
+                .polygonStrokeColor(() => '#00f0ff');
+        });
+
+    window.addEventListener('resize', () => {
+        world.width(window.innerWidth);
+        world.height(window.innerHeight - 150);
+    });
+}
+</script>
+</body>
+</html>

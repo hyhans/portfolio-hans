@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Hans</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css?v=9999">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <style id="ultimate-fix">
+        #preloader { display: none !important; pointer-events: none !important; }
+        .cursor-dot, .cursor-outline { display: none !important; pointer-events: none !important; }
+        html, body { cursor: auto !important; }
+        * { cursor: auto !important; }
+        .bio-card-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--color-primary) !important;
+            box-shadow: 0 10px 25px rgba(0, 240, 255, 0.25), inset 0 0 10px rgba(0, 240, 255, 0.1);
+        }
+        /* Style untuk kursor kedip efek ketik */
+        .typing-cursor {
+            display: inline-block;
+            background-color: var(--color-primary);
+            width: 2px;
+            animation: blink 0.8s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Light Leaks / Orbs for Depth -->
+    <div class="light-leak-1"></div>
+    <div class="light-leak-2"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Hans<span>.</span></a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html" class="active">About Me</a>
+                    <a href="skills.html">Skills</a>
+                    <a href="services.html">Services</a>
+                </div>
+                <button id="lang-toggle" class="theme-btn" aria-label="Toggle Language" title="Change Language">EN</button>
+                <button id="zen-toggle" class="theme-btn" aria-label="Toggle Zen Mode" title="Zen Mode"><i class="fa-solid fa-leaf"></i></button>
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / About Section -->
+    <section id="about" style="position: relative; background-color: #050508; min-height: calc(100vh - 120px); padding: 80px 24px 40px; display: flex; align-items: flex-start; overflow: hidden;">
+      <!-- Canvas Sirkuit Partikel Bergerak -->
+      <canvas id="circuit-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
+
+      <div class="about-container" style="position: relative; z-index: 1; display: flex; flex-direction: column; width: 100%; max-width: 1200px; margin: 0 auto; gap: 30px; padding: 0;">
+        
+        <!-- Badge Status -->
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 240, 255, 0.1); border: 1px solid rgba(0, 240, 255, 0.3); padding: 6px 14px; border-radius: 50px;">
+            <span style="width: 8px; height: 8px; background-color: #10B981; border-radius: 50%; box-shadow: 0 0 8px #10B981; display: inline-block;"></span>
+            <span style="color: var(--color-primary); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px;">⚡ Open to Work</span>
+          </div>
+        </div>
+
+        <!-- Row Utama (Teks Kiri & Foto Kanan Sejajar) -->
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; width: 100%;">
+          
+          <!-- Bagian Teks Kiri -->
+          <div class="about-left" style="flex: 1; min-width: 0;">
+            <h1 style="margin-bottom: 10px; color: #FFFFFF; font-weight: 800; font-size: 2.3rem; text-shadow: 0 0 6px rgba(255,255,255,0.5);">Hello, I am Michael Hans Saputra</h1>
+            <h2 style="color: #33F3FF; font-size: 1.8rem; margin-bottom: 20px; text-shadow: 0 0 6px rgba(0, 240, 255, 0.3);">Tech Enthusiast & Developer</h2>
+            
+            <!-- Paragraf Efek Ketik Mulus -->
+            <p id="typed-bio" style="color: #CBD5E1; font-weight: 500; line-height: 1.8; margin-bottom: 25px; min-height: 80px;"></p>
+            
+            <!-- Tombol Aksi -->
+            <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap;">
+              <button class="btn btn-primary" id="openProjectModal">Start a Project</button>
+              <a href="https://www.skills.google/public_profiles/914365de-9620-4369-8755-f34206881a8c" target="_blank" class="btn btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-award"></i> Google Skills
+              </a>
+            </div>
+          </div>
+          
+          <!-- Bagian Foto Kanan (Lingkaran Putih) -->
+          <div class="about-right" style="flex-shrink: 0; display: flex; justify-content: center; align-items: flex-start; padding-top: 5px;">
+            <img src="foto-hans1.png.jpeg" alt="Hans" class="glow-circle" style="width: 280px; height: 280px; object-fit: cover; border-radius: 50%; border: 4px solid #FFFFFF; box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.4);">
+          </div>
+
+        </div>
+
+        <!-- Bio Cards Bawah (Education & Organization) -->
+        <div class="bio-cards" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; margin-top: 10px;">
+          
+          <!-- Kartu Education -->
+          <a href="https://www.instagram.com/unas1949?igsh=MXNhZGRtazZ3NGQ0cw==" target="_blank" class="glass bio-card-item" style="padding: 20px; border-radius: 12px; border: 1px solid rgba(0, 240, 255, 0.2); transition: all 0.3s ease; text-decoration: none; display: block; color: inherit;">
+            <div style="color: var(--color-primary); font-size: 1.2rem; margin-bottom: 8px;"><i class="fa-solid fa-graduation-cap"></i></div>
+            <h4 style="color: #FFFFFF; font-size: 1rem; margin-bottom: 5px;">Education <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem; opacity: 0.7; margin-left: 4px;"></i></h4>
+            <p style="color: #CBD5E1; font-size: 0.85rem; line-height: 1.5;">Michael Hans Saputra<br>Universitas Nasional (Informatics)</p>
+          </a>
+
+          <!-- Kartu Organization -->
+          <a href="https://www.instagram.com/himtiunas?igsh=MWdvdGxwZzJiaXZjaQ==" target="_blank" class="glass bio-card-item" style="padding: 20px; border-radius: 12px; border: 1px solid rgba(0, 240, 255, 0.2); transition: all 0.3s ease; text-decoration: none; display: block; color: inherit;">
+            <div style="color: var(--color-primary); font-size: 1.2rem; margin-bottom: 8px;"><i class="fa-solid fa-users-rectangle"></i></div>
+            <h4 style="color: #FFFFFF; font-size: 1rem; margin-bottom: 5px;">Organization <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem; opacity: 0.7; margin-left: 4px;"></i></h4>
+            <p style="color: #CBD5E1; font-size: 0.85rem; line-height: 1.5;">HIMTI UNAS<br><b>Divisi Ilmu Pengetahuan & Teknologi (IPTEK)</b></p>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <p>Have an interesting idea? Don't hesitate to contact me!</p>
+            <div class="social-links">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/michael-hans-saputra-29012b420?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/hanssxy?igsh=NGhneWM2cGVuNTFu" target="_blank" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <!-- GitHub -->
+                <a href="#" target="_blank" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <p class="copyright">&copy; 2026 Hans. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Popup Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content glass">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h3>Start a Project</h3>
+            <p>Please leave a message, I will get back to you as soon as possible!</p>
+            <form class="contact-form" id="projectForm">
+                <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+                <div class="form-group"><input type="email" placeholder="Your Email" required></div>
+                <div class="form-group"><textarea rows="4" placeholder="Tell me about your project..." required></textarea></div>
+                <button type="submit" class="btn btn-primary w-100">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Masterpiece Global Elements -->
+    <div id="preloader"><div class="preloader-content"><div class="glitch-text" id="preloader-text" data-text="0%">0%</div><div class="loading-bar-bg"><div class="loading-bar-fill"></div></div></div></div>
+    <canvas id="matrix-canvas"></canvas>
+    <audio id="audio-click" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" preload="auto"></audio>
+    <audio id="audio-hover" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
+
+    <div id="chatbot-container">
+        <button id="chatbot-toggle">
+            <i class="fa-solid fa-robot"></i>
+        </button>
+        <div id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="bot-avatar"><i class="fa-solid fa-robot"></i></div>
+                <div>
+                    <h4>Hans AI</h4>
+                    <span class="status-online">Online</span>
+                </div>
+                <button id="chatbot-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chat-messages">
+                <div class="msg bot-msg" data-en="Hello! I'm Hans's AI assistant. Want to start a project?" data-id="Halo! Saya AI asisten Hans. Ingin memulai project?">Hello! I'm Hans's AI assistant. Want to start a project?</div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button id="chat-send"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDNs -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tagcanvas@2.9.0/tagcanvas.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js?v=9999"></script>
+
+    <!-- Script Animasi Partikel & Efek Ketik yang Dioptimalkan -->
+    <script>
+    // 1. Animasi Partikel Sirkuit (Dioptimalkan agar ringan)
+    const canvas = document.getElementById('circuit-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const particles = [];
+    const numParticles = 40;
+
+    for (let i = 0; i < numParticles; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            radius: Math.random() * 2 + 1
+        });
+    }
+
+    function animateCircuit() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(0, 240, 255, 0.6)';
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.15)';
+        ctx.lineWidth = 1;
+
+        particles.forEach((p, index) => {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fill();
+
+            for (let j = index + 1; j < particles.length; j++) {
+                const p2 = particles[j];
+                const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                if (dist < 120) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        });
+
+        requestAnimationFrame(animateCircuit);
+    }
+    animateCircuit();
+
+    // 2. Efek Ketik Teroptimasi (Mulus, Cepat, Tanpa Ngeleg Awal)
+    const textToType = "Passionate about crafting elegant web experiences, exploring cutting-edge technologies, and turning ideas into reality. I combine design sense with solid development skills to deliver premium digital products.";
+    const typedElement = document.getElementById("typed-bio");
+    let charIndex = 0;
+
+    function typeText() {
+        if (charIndex < textToType.length) {
+            typedElement.innerHTML += textToType.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeText, 10); // Kecepatan ngetik disesuaikan agar smooth
+        }
+    }
+
+    // Mulai setelah halaman siap sepenuhnya agar tidak bentrok dengan rendering awal
+    window.addEventListener("load", () => {
+        setTimeout(typeText, 200);
+    });
+    </script>
+</body>
+</html>

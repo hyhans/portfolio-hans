@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Hans</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css?v=9999">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <style id="ultimate-fix">
+        #preloader { display: none !important; pointer-events: none !important; }
+        .cursor-dot, .cursor-outline { display: none !important; pointer-events: none !important; }
+        html, body { cursor: auto !important; }
+        * { cursor: auto !important; }
+        
+        .skills-category-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            position: relative;
+            z-index: 1;
+        }
+        .category-title {
+            color: #FFFFFF;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+            padding-bottom: 8px;
+        }
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+        .skill-card-wrapper {
+            flex: 0 0 calc(12.5% - 11px);
+            min-width: 135px;
+        }
+        .skill-card {
+            padding: 15px 10px !important;
+            min-height: 150px !important;
+        }
+        .skill-card .skill-icon {
+            font-size: 1.8rem !important;
+            margin-bottom: 8px !important;
+        }
+        .skill-card h3 {
+            font-size: 0.95rem !important;
+            margin-bottom: 6px !important;
+        }
+        .skill-card .level {
+            font-size: 0.8rem !important;
+        }
+        .progress {
+            width: 50% !important;
+        }
+
+        @media (max-width: 1024px) {
+            .skill-card-wrapper {
+                flex: 0 0 calc(20% - 10px);
+            }
+        }
+        @media (max-width: 768px) {
+            .skill-card-wrapper {
+                flex: 0 0 calc(33.333% - 10px);
+            }
+        }
+    </style>
+</head>
+<body style="background-color: #050508;">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Light Leaks / Orbs for Depth -->
+    <div class="light-leak-1"></div>
+    <div class="light-leak-2"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Hans<span>.</span></a>
+            <div class="nav-right">
+                <div class="nav-links">
+                     <a href="index.html">Home</a>
+                     <a href="about.html">About Me</a>
+                     <a href="skills.html" class="active">Skills</a>
+                     <a href="services.html">Services</a>
+                </div>
+                
+                <button id="lang-toggle" class="theme-btn" aria-label="Toggle Language" title="Change Language">EN</button>
+                <button id="zen-toggle" class="theme-btn" aria-label="Toggle Zen Mode" title="Zen Mode"><i class="fa-solid fa-leaf"></i></button>
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Skills Section dengan Background Sirkuit Partikel Bergerak -->
+    <section id="skills" class="skills" style="position: relative; background-color: #050508; padding-top: 90px; margin-top: 0px; overflow: hidden;">
+      <!-- Canvas Sirkuit Partikel Bergerak -->
+      <canvas id="circuit-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
+
+      <div class="skills-category-container">
+            
+            <!-- 1. Programming Languages -->
+            <h3 class="category-title"><i class="fa-solid fa-laptop-code"></i> Programming Languages</h3>
+            <div class="skills-grid">
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-brands fa-js skill-icon"></i>
+                        <h3>JavaScript</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-code skill-icon"></i>
+                        <h3>TypeScript</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-brands fa-python skill-icon"></i>
+                        <h3>Python</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-brands fa-java skill-icon"></i>
+                        <h3>Java</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-hashtag skill-icon"></i>
+                        <h3>C#</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-brands fa-cuttlefish skill-icon"></i>
+                        <h3>C++</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-mobile-screen-button skill-icon"></i>
+                        <h3>Dart</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <svg viewBox="0 0 128 128" class="skill-icon svg-icon" style="width: 30px; height: 30px; margin: 0 auto 8px; display: block;">
+                            <circle cx="64" cy="64" r="48" fill="none" stroke="currentColor" stroke-width="8"/>
+                            <circle cx="95" cy="35" r="12" fill="currentColor"/>
+                        </svg>
+                        <h3>Lua</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Web Development -->
+            <h3 class="category-title"><i class="fa-solid fa-globe"></i> Web Development</h3>
+            <div class="skills-grid">
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-brands fa-html5 skill-icon"></i>
+                        <h3>HTML</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-brands fa-css3-alt skill-icon"></i>
+                        <h3>CSS</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-brands fa-react skill-icon"></i>
+                        <h3>React</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-brands fa-node-js skill-icon"></i>
+                        <h3>Node.js</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-server skill-icon"></i>
+                        <h3>Express.js</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Design -->
+            <h3 class="category-title"><i class="fa-solid fa-palette"></i> Design</h3>
+            <div class="skills-grid">
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-pen-ruler skill-icon"></i>
+                        <h3>UI Design</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-pen-nib skill-icon"></i>
+                        <h3>Graphic Design</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-image skill-icon"></i>
+                        <h3>Poster Design</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-flag skill-icon"></i>
+                        <h3>Banner Design</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-wand-magic-sparkles skill-icon"></i>
+                        <h3>Canva</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-brands fa-figma skill-icon"></i>
+                        <h3>Figma</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Video Editing -->
+            <h3 class="category-title"><i class="fa-solid fa-clapperboard"></i> Video Editing</h3>
+            <div class="skills-grid">
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-video skill-icon"></i>
+                        <h3>Video Editing</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-film skill-icon"></i>
+                        <h3>CapCut</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-clapperboard skill-icon"></i>
+                        <h3>Premiere Pro</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-video-slash skill-icon"></i>
+                        <h3>DaVinci Resolve</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-cube skill-icon"></i>
+                        <h3>Motion Graphics</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Tools -->
+            <h3 class="category-title"><i class="fa-solid fa-toolbox"></i> Tools</h3>
+            <div class="skills-grid">
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-brands fa-git-alt skill-icon"></i>
+                        <h3>Git</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-brands fa-github skill-icon"></i>
+                        <h3>GitHub</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+                <div class="skill-card-wrapper">
+                    <div class="skill-card glass">
+                        <i class="fa-solid fa-code-compare skill-icon"></i>
+                        <h3>VS Code</h3>
+                        <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                        <p class="level">Learning</p>
+                    </div>
+                </div>
+            </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>Let's Connect</h2>
+            <p>Have an interesting idea? Don't hesitate to contact me!</p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/michael-hans-saputra-29012b420?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-icon" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/hanssxy?igsh=NGhneWM2cGVuNTFu" target="_blank" class="social-icon" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" target="_blank" class="social-icon" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+            
+            <p class="copyright">&copy; 2026 Hans. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Masterpiece Global Elements -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="glitch-text" id="preloader-text" data-text="0%">0%</div>
+            <div class="loading-bar-bg"><div class="loading-bar-fill"></div></div>
+        </div>
+    </div>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <audio id="audio-click" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" preload="auto"></audio>
+    <audio id="audio-hover" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
+
+    <div id="chatbot-container">
+        <button id="chatbot-toggle">
+            <i class="fa-solid fa-robot"></i>
+        </button>
+        <div id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="bot-avatar"><i class="fa-solid fa-robot"></i></div>
+                <div>
+                    <h4>Hans AI</h4>
+                    <span class="status-online">Online</span>
+                </div>
+                <button id="chatbot-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="chatbot-messages" id="chat-messages">
+                <div class="msg bot-msg" data-en="Hello! I'm Hans's AI assistant. Want to start a project?" data-id="Halo! Saya AI asisten Hans. Ingin memulai project?">Hello! I'm Hans's AI assistant. Want to start a project?</div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button id="chat-send"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDNs -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tagcanvas@2.9.0/tagcanvas.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js?v=9999"></script>
+
+    <!-- Script Animasi Partikel Sirkuit -->
+    <script>
+    const canvas = document.getElementById('circuit-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = canvas.parentElement.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const particles = [];
+    const numParticles = 65;
+
+    for (let i = 0; i < numParticles; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.8,
+            vy: (Math.random() - 0.5) * 0.8,
+            radius: Math.random() * 2 + 1
+        });
+    }
+
+    function animateCircuit() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(0, 240, 255, 0.6)';
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.18)';
+        ctx.lineWidth = 1;
+
+        particles.forEach((p, index) => {
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fill();
+
+            for (let j = index + 1; j < particles.length; j++) {
+                const p2 = particles[j];
+                const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                if (dist < 130) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        });
+
+        requestAnimationFrame(animateCircuit);
+    }
+    animateCircuit();
+    </script>
+</body>
+</html>
