@@ -777,7 +777,7 @@ footer {
 }
 
 /* =========================================
-   UPDATE: Navbar Tetap di ATAS untuk Layar HP (Mobile) - Logo Hidden & Centered Nav
+   UPDATE: Navbar & About Me Fix untuk HP (Mobile)
    ========================================= */
 @media (max-width: 900px) {
     /* 1. Paksa Navigasi Tetap di Atas dengan Dark Mode Penuh */
@@ -796,16 +796,12 @@ footer {
     .nav-container {
         padding: 0 !important;
         display: flex !important;
-        justify-content: center !important; /* Menu otomatis di tengah karena logo disembunyikan */
+        justify-content: center !important;
         align-items: center !important;
     }
 
-    /* 2. Sembunyikan Logo "Hans." khusus di HP */
-    .logo {
-        display: none !important;
-    }
-
-    /* 3. Sembunyikan tombol tema, daun, dan bahasa di HP */
+    /* 2. Sembunyikan Logo "Hans." dan tombol-tombol tidak penting di HP */
+    .logo,
     #theme-toggle, 
     #zen-toggle,
     #lang-toggle {
@@ -818,7 +814,7 @@ footer {
         gap: 0 !important;
     }
 
-    /* 4. Menu Navigasi tampil penuh dan rapi */
+    /* 3. Menu Navigasi Tampil Rapi di Atas */
     .nav-links {
         display: flex !important;
         position: static !important;
@@ -831,6 +827,48 @@ footer {
     .nav-links a {
         font-size: 0.8rem !important;
         padding: 0 !important;
+    }
+
+    /* 4. PERBAIKAN UTAMA HALAMAN ABOUT ME & HERO DI HP */
+    .hero, .about-container {
+        flex-direction: column !important;
+        text-align: center !important;
+        align-items: center !important;
+        gap: 25px !important;
+    }
+
+    .hero-content {
+        max-width: 100% !important;
+        text-align: center !important;
+    }
+
+    /* Perkecil ukuran teks nama & deskripsi biar gak terlalu panjang ke bawah */
+    .name {
+        font-size: 2.5rem !important;
+    }
+
+    .title {
+        font-size: 1.1rem !important;
+    }
+
+    .description {
+        font-size: 0.95rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Posisikan tombol aksi di tengah */
+    .hero-buttons {
+        justify-content: center !important;
+    }
+
+    /* Sesuaikan ukuran foto profil (glow circle) di HP agar tidak terlalu besar */
+    .glow-circle {
+        width: 200px !important;
+        height: 200px !important;
+        min-width: 200px !important;
+        min-height: 200px !important;
+        margin: 0 auto !important;
     }
 
     /* 5. Jarak atas body agar konten tidak tertutup header */
