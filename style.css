@@ -752,31 +752,6 @@ footer {
     box-shadow: 0 0 10px var(--color-primary-glow) !important;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 900px) {
-    .nav-container {
-        padding: 0 20px;
-    }
-
-    .nav-links {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: rgba(13, 18, 38, 0.95);
-        backdrop-filter: blur(15px);
-        display: flex;
-        justify-content: space-around;
-        padding: 12px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        z-index: 9999;
-    }
-
-    body {
-        padding-bottom: 60px;
-    }
-}
-
 /* =========================================
    FIX SUPAYA GLOBE 3D MUNCUL DI HOMEPAGE
    ========================================= */
@@ -799,4 +774,65 @@ footer {
 
 #home, section.hero {
     background: transparent !important;
+}
+
+/* =========================================
+   UPDATE: Navbar Tetap di ATAS untuk Layar HP (Mobile)
+   ========================================= */
+@media (max-width: 900px) {
+    /* 1. Paksa Navigasi Tetap di Atas (Header) */
+    nav {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: rgba(13, 18, 38, 0.95) !important;
+        backdrop-filter: blur(15px) !important;
+        padding: 10px 0 !important;
+        z-index: 9999 !important;
+    }
+
+    .nav-container {
+        padding: 0 15px !important;
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+    }
+
+    /* 2. Atur Tata Letak Menu Navigasi Biar Rapi di Atas */
+    .nav-links {
+        display: flex !important;
+        position: static !important;
+        width: 100% !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        background: transparent !important;
+        padding: 0 !important;
+        border: none !important;
+        order: 2;
+    }
+
+    .nav-links a {
+        font-size: 0.8rem !important;
+        padding: 2px 4px !important;
+    }
+
+    /* 3. Logo dan Menu Kanan (Bahasa & Tema) Sejajar di Baris Atas */
+    .logo {
+        font-size: 1.2rem !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    .nav-right {
+        margin-left: auto !important;
+        gap: 10px !important;
+        order: 1;
+    }
+
+    /* 4. Reset Padding Body Supaya Konten Tidak Tertutup Header Atas */
+    body {
+        padding-bottom: 0 !important;
+        padding-top: 90px !important;
+    }
 }
