@@ -777,7 +777,7 @@ footer {
 }
 
 /* =========================================
-   UPDATE: Navbar Tetap di ATAS untuk Layar HP (Mobile) - Clean & Fixed
+   UPDATE: Navbar Tetap di ATAS untuk Layar HP (Mobile) - Logo Hidden & Centered Nav
    ========================================= */
 @media (max-width: 900px) {
     /* 1. Paksa Navigasi Tetap di Atas dengan Dark Mode Penuh */
@@ -796,11 +796,16 @@ footer {
     .nav-container {
         padding: 0 !important;
         display: flex !important;
-        justify-content: space-between !important;
+        justify-content: center !important; /* Menu otomatis di tengah karena logo disembunyikan */
         align-items: center !important;
     }
 
-    /* 2. Sembunyikan tombol tema, daun, dan bahasa di HP tanpa mematikan nav-right */
+    /* 2. Sembunyikan Logo "Hans." khusus di HP */
+    .logo {
+        display: none !important;
+    }
+
+    /* 3. Sembunyikan tombol tema, daun, dan bahasa di HP */
     #theme-toggle, 
     #zen-toggle,
     #lang-toggle {
@@ -813,24 +818,19 @@ footer {
         gap: 0 !important;
     }
 
-    /* 3. Menu Navigasi dimunculkan kembali dan dirapikan di kanan */
+    /* 4. Menu Navigasi tampil penuh dan rapi */
     .nav-links {
         display: flex !important;
         position: static !important;
-        gap: 10px !important;
+        gap: 15px !important;
         background: transparent !important;
         padding: 0 !important;
         border: none !important;
     }
 
     .nav-links a {
-        font-size: 0.75rem !important;
+        font-size: 0.8rem !important;
         padding: 0 !important;
-    }
-
-    /* 4. Ukuran Logo disesuaikan */
-    .logo {
-        font-size: 1.2rem !important;
     }
 
     /* 5. Jarak atas body agar konten tidak tertutup header */
