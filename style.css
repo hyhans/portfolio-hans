@@ -563,7 +563,8 @@ footer {
     position: fixed !important;
     bottom: 30px !important;
     right: 30px !important;
-    z-index: 99988 !important;
+    z-index: 999999 !important; /* Diperkuat supaya selalu paling atas */
+    pointer-events: auto !important; /* Memastikan kebal dari blokiran background */
 }
 
 #chatbot-toggle {
@@ -580,6 +581,7 @@ footer {
     align-items: center !important;
     justify-content: center !important;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    pointer-events: auto !important;
 }
 
 #chatbot-toggle:hover {
@@ -762,7 +764,7 @@ footer {
     width: 100vw !important;
     height: 100vh !important;
     z-index: 1 !important;
-    pointer-events: auto !important;
+    pointer-events: none !important; /* Diubah jadi none biar gak blok klik */
     display: block !important;
 }
 
@@ -835,6 +837,7 @@ footer {
         align-items: center !important;
         justify-content: flex-start !important;
         gap: 20px !important;
+        padding-bottom: 60px !important; /* Tambahan ruang biar gak nabrak chat ai */
     }
 
     /* Posisi badge Open to Work di tengah HP */
