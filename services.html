@@ -20,48 +20,70 @@
     <style id="ultimate-fix">
         #preloader { display: none !important; pointer-events: none !important; }
         .cursor-dot, .cursor-outline { display: none !important; pointer-events: none !important; }
-        html, body { cursor: auto !important; scroll-behavior: smooth !important; }
+        html, body { cursor: auto !important; scroll-behavior: smooth !important; overflow-x: hidden; }
         * { cursor: auto !important; }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 45px;
+            gap: 40px;
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
+        
         .service-card {
-            padding: 22px !important;
+            padding: 25px !important;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative; 
+            position: relative;
+            border-radius: 16px;
+            transition: all 0.3s ease;
         }
+
         .service-icon {
-            font-size: 2rem !important;
-            margin-bottom: 12px !important;
-        }
-        .service-card h3 {
-            font-size: 1.1rem !important;
-            margin-bottom: 8px !important;
-        }
-        .service-card p {
-            font-size: 0.85rem !important;
-            line-height: 1.4 !important;
+            font-size: 2.2rem !important;
             margin-bottom: 15px !important;
+            color: var(--color-primary);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem !important;
+            margin-bottom: 12px !important;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 0.9rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 25px !important;
+            text-align: justify !important; /* Rata Kiri Kanan biar rapi di HP */
+            color: #CBD5E1;
+        }
+
+        /* Tweak Khusus Mobile / HP */
+        @media (max-width: 900px) {
+            .services-section-wrap {
+                padding-top: 100px !important;
+                padding-bottom: 80px !important; /* Biar ngga nabrak tombol AI di bawah */
+            }
+            .services-grid {
+                gap: 25px; /* Jarak antar kartu sedikit dirapatkan di HP */
+                padding: 0 15px;
+            }
+            .section-header h2 {
+                font-size: 2.2rem !important;
+            }
         }
     </style>
 </head>
 <body style="background-color: #050508;">
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
+    
     <!-- Light Leaks / Orbs for Depth -->
-    <div class="light-leak-1"></div>
-    <div class="light-leak-2"></div>
+    <div class="light-leak-1" style="pointer-events: none;"></div>
+    <div class="light-leak-2" style="pointer-events: none;"></div>
 
     <!-- Navigation -->
     <nav>
@@ -85,13 +107,13 @@
     </nav>
 
     <!-- Services Section -->
-    <section id="services-section-wrap" class="services-section-wrap" style="position: relative; background-color: #050508; padding-top: 140px; padding-bottom: 30px; min-height: 100vh;">
+    <section id="services-section-wrap" class="services-section-wrap" style="position: relative; background-color: #050508; padding-top: 140px; padding-bottom: 60px; min-height: 100vh;">
       
       <!-- Canvas Background Fixed -->
-      <canvas id="circuit-canvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 0;"></canvas>
+      <canvas id="circuit-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
 
       <div style="position: relative; z-index: 1;">
-        <div class="section-header" style="margin-bottom: 35px;">
+        <div class="section-header" style="margin-bottom: 45px;">
             <h2>My Services</h2>
             <div class="line"></div>
         </div>
@@ -106,7 +128,7 @@
                             <i class="fa-solid fa-laptop-code"></i>
                         </div>
                         <h3>1. Website Development ⭐</h3>
-                        <p>Build responsive and modern websites using HTML, CSS, JavaScript, React, and Node.js.</p>
+                        <p>Build responsive and modern websites using HTML, CSS, JavaScript, React, and Node.js. Tailored for your specific business needs.</p>
                     </div>
                     <button class="btn btn-primary order-btn w-100">Order Now</button>
                 </div>
@@ -120,7 +142,7 @@
                             <i class="fa-solid fa-palette"></i>
                         </div>
                         <h3>2. UI Design</h3>
-                        <p>Design clean, modern, and user-friendly interfaces for websites and web applications using Figma.</p>
+                        <p>Design clean, modern, and user-friendly interfaces for websites and web applications using tools like Figma, focusing on aesthetic and usability.</p>
                     </div>
                     <button class="btn btn-primary order-btn w-100">Order Now</button>
                 </div>
@@ -134,7 +156,7 @@
                             <i class="fa-solid fa-paintbrush"></i>
                         </div>
                         <h3>3. Graphic Design</h3>
-                        <p>Create posters, banners, certificates, and social media content with attractive and professional layouts.</p>
+                        <p>Create posters, banners, certificates, and social media content with attractive and professional layouts that match your brand identity.</p>
                     </div>
                     <button class="btn btn-primary order-btn w-100">Order Now</button>
                 </div>
@@ -148,7 +170,7 @@
                             <i class="fa-solid fa-clapperboard"></i>
                         </div>
                         <h3>4. Video Editing</h3>
-                        <p>Edit promotional videos, reels, event highlights, and short-form content for social media.</p>
+                        <p>Edit promotional videos, reels, event highlights, and short-form content for social media to maximize engagement and audience retention.</p>
                     </div>
                     <button class="btn btn-primary order-btn w-100">Order Now</button>
                 </div>
@@ -162,7 +184,7 @@
                             <i class="fa-solid fa-robot"></i>
                         </div>
                         <h3>5. AI Chatbot Integration</h3>
-                        <p>Integrate AI chatbot solutions into websites to improve customer support and user interaction.</p>
+                        <p>Integrate intelligent AI chatbot solutions into your websites to improve 24/7 customer support, lead generation, and user interaction.</p>
                     </div>
                     <button class="btn btn-primary order-btn w-100">Order Now</button>
                 </div>
@@ -176,7 +198,7 @@
                             <i class="fa-solid fa-gears"></i>
                         </div>
                         <h3>6. Website Maintenance</h3>
-                        <p>Maintain, update, fix bugs, and improve website performance and functionality.</p>
+                        <p>Maintain, update, fix bugs, and improve website performance and functionality to ensure a smooth experience for your visitors over time.</p>
                     </div>
                     <button class="btn btn-primary order-btn w-100">Order Now</button>
                 </div>
@@ -187,7 +209,7 @@
     </section>
 
     <!-- Swiper Testimonials -->
-    <section class="testimonials" style="position: relative; z-index: 1; padding: 60px 20px; margin-top: 50px;">
+    <section class="testimonials" style="position: relative; z-index: 1; padding: 60px 20px; margin-top: 20px; background-color: #050508;">
         <div class="section-header">
             <h2 data-en="Client Feedback" data-id="Ulasan Klien">Client Feedback</h2>
             <div class="line"></div>
@@ -195,19 +217,19 @@
         <div class="swiper mySwiper" style="max-width: 800px; margin: 0 auto; padding: 40px 0;">
             <div class="swiper-wrapper">
                 <div class="swiper-slide glass" style="padding: 30px; text-align: center; border-radius: 15px;">
-                    <p style="font-style: italic; margin-bottom: 20px;">"Hans completely transformed our online presence. The attention to detail and 3D effects are out of this world!"</p>
+                    <p style="font-style: italic; margin-bottom: 20px; color: #CBD5E1;">"Hans completely transformed our online presence. The attention to detail and animations are out of this world!"</p>
                     <h4 style="color: var(--color-primary);">Sarah Jenkins</h4>
-                    <span style="font-size: 0.8rem; color: #aaa;">CEO, TechNova</span>
+                    <span style="font-size: 0.8rem; color: #94A3B8;">CEO, TechNova</span>
                 </div>
                 <div class="swiper-slide glass" style="padding: 30px; text-align: center; border-radius: 15px;">
-                    <p style="font-style: italic; margin-bottom: 20px;">"The best web developer I've ever worked with. The project was delivered on time and exceeded expectations."</p>
+                    <p style="font-style: italic; margin-bottom: 20px; color: #CBD5E1;">"The best web developer I've ever worked with. The project was delivered on time and exceeded expectations."</p>
                     <h4 style="color: var(--color-primary);">Michael Chen</h4>
-                    <span style="font-size: 0.8rem; color: #aaa;">Founder, StartupX</span>
+                    <span style="font-size: 0.8rem; color: #94A3B8;">Founder, StartupX</span>
                 </div>
                 <div class="swiper-slide glass" style="padding: 30px; text-align: center; border-radius: 15px;">
-                    <p style="font-style: italic; margin-bottom: 20px;">"Stunning aesthetics and flawless performance. Hans is a true master of frontend engineering."</p>
+                    <p style="font-style: italic; margin-bottom: 20px; color: #CBD5E1;">"Stunning aesthetics and flawless performance. Hans is a true master of frontend engineering."</p>
                     <h4 style="color: var(--color-primary);">Emma Watson</h4>
-                    <span style="font-size: 0.8rem; color: #aaa;">Creative Director</span>
+                    <span style="font-size: 0.8rem; color: #94A3B8;">Creative Director</span>
                 </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -218,7 +240,7 @@
     <footer id="contact" style="position: relative; z-index: 1;">
         <div class="footer-content">
             <h2>Let's Connect</h2>
-            <p>Have an interesting idea? Don't hesitate to contact me!</p>
+            <p style="margin-bottom: 20px;">Have an interesting idea? Don't hesitate to contact me!</p>
             
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/michael-hans-saputra-29012b420?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-icon" aria-label="LinkedIn">
@@ -237,11 +259,11 @@
     </footer>
 
     <!-- Popup Modal -->
-    <div class="modal-overlay" id="contactModal">
+    <div class="modal-overlay" id="contactModal" style="z-index: 999999;">
         <div class="modal-content glass">
             <button class="close-modal" id="closeModal">&times;</button>
             <h3>Start a Project</h3>
-            <p>Please leave a message, I will get back to you as soon as possible!</p>
+            <p style="margin-bottom: 20px;">Please leave a message, I will get back to you as soon as possible!</p>
             
             <form class="contact-form" id="projectForm">
                 <div class="form-group">
@@ -258,17 +280,9 @@
         </div>
     </div>
     
-    <!-- Masterpiece Global Elements -->
-    <div id="preloader">
-        <div class="preloader-content">
-            <div class="glitch-text" id="preloader-text" data-text="0%">0%</div>
-            <div class="loading-bar-bg"><div class="loading-bar-fill"></div></div>
-        </div>
-    </div>
-
-    <!-- AI Chatbot Container -->
-    <div id="chatbot-container">
-        <button id="chatbot-toggle">
+    <!-- AI Chatbot Container (Pasti Kebal Timpa) -->
+    <div id="chatbot-container" style="pointer-events: auto !important; z-index: 999999 !important;">
+        <button id="chatbot-toggle" style="pointer-events: auto !important;">
             <i class="fa-solid fa-robot"></i>
         </button>
         <div id="chatbot-window">
@@ -292,12 +306,8 @@
 
     <!-- CDNs -->
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tagcanvas@2.9.0/tagcanvas.min.js"></script>
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- GSAP & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="script.js?v=9999"></script>
 
@@ -307,20 +317,22 @@
     const ctx = canvas.getContext('2d');
 
     function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        if(canvas.parentElement) {
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+        }
     }
     
     setTimeout(resizeCanvas, 100);
     window.addEventListener('resize', resizeCanvas);
 
     const particles = [];
-    const numParticles = 65;
+    const numParticles = 50;
 
     for (let i = 0; i < numParticles; i++) {
         particles.push({
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            x: Math.random() * (window.innerWidth || 1000),
+            y: Math.random() * (window.innerHeight || 1000),
             vx: (Math.random() - 0.5) * 0.8,
             vy: (Math.random() - 0.5) * 0.8,
             radius: Math.random() * 2 + 1
@@ -330,7 +342,7 @@
     function animateCircuit() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = 'rgba(0, 240, 255, 0.6)';
-        ctx.strokeStyle = 'rgba(0, 240, 255, 0.18)';
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.15)';
         ctx.lineWidth = 1;
 
         particles.forEach((p, index) => {
@@ -347,7 +359,7 @@
             for (let j = index + 1; j < particles.length; j++) {
                 const p2 = particles[j];
                 const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                if (dist < 130) {
+                if (dist < 120) {
                     ctx.beginPath();
                     ctx.moveTo(p.x, p.y);
                     ctx.lineTo(p2.x, p2.y);
