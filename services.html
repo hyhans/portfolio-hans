@@ -59,22 +59,47 @@
             font-size: 0.9rem !important;
             line-height: 1.6 !important;
             margin-bottom: 25px !important;
-            text-align: justify !important; /* Rata Kiri Kanan biar rapi di HP */
+            text-align: justify !important; 
             color: #CBD5E1;
+        }
+
+        /* FIX SLIDER TESTIMONIAL */
+        .swiper {
+            width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .swiper-slide {
+            box-sizing: border-box;
+            width: 100%;
         }
 
         /* Tweak Khusus Mobile / HP */
         @media (max-width: 900px) {
             .services-section-wrap {
                 padding-top: 100px !important;
-                padding-bottom: 80px !important; /* Biar ngga nabrak tombol AI di bawah */
+                padding-bottom: 60px !important; 
             }
             .services-grid {
-                gap: 25px; /* Jarak antar kartu sedikit dirapatkan di HP */
+                gap: 25px; 
                 padding: 0 15px;
             }
             .section-header h2 {
                 font-size: 2.2rem !important;
+            }
+            
+            /* Penyesuaian Swiper Testimonial di HP */
+            .testimonials {
+                padding: 40px 15px !important;
+            }
+            .swiper-slide {
+                padding: 20px 15px !important; /* Padding dikecilin di HP */
+                border-radius: 12px !important;
+            }
+            .swiper-slide p {
+                font-size: 0.85rem !important; /* Teks agak dikecilin biar rapi */
+                line-height: 1.5 !important;
             }
         }
     </style>
@@ -214,19 +239,21 @@
             <h2 data-en="Client Feedback" data-id="Ulasan Klien">Client Feedback</h2>
             <div class="line"></div>
         </div>
-        <div class="swiper mySwiper" style="max-width: 800px; margin: 0 auto; padding: 40px 0;">
+        
+        <!-- Tambahin w-100 dan overflow hidden disini biar ga bablas ke samping -->
+        <div class="swiper mySwiper" style="width: 100%; max-width: 800px; margin: 0 auto; padding: 40px 0; overflow: hidden; box-sizing: border-box;">
             <div class="swiper-wrapper">
-                <div class="swiper-slide glass" style="padding: 30px; text-align: center; border-radius: 15px;">
+                <div class="swiper-slide glass" style="padding: 30px; text-align: center; border-radius: 15px; box-sizing: border-box;">
                     <p style="font-style: italic; margin-bottom: 20px; color: #CBD5E1;">"Hans completely transformed our online presence. The attention to detail and animations are out of this world!"</p>
                     <h4 style="color: var(--color-primary);">Sarah Jenkins</h4>
                     <span style="font-size: 0.8rem; color: #94A3B8;">CEO, TechNova</span>
                 </div>
-                <div class="swiper-slide glass" style="padding: 30px; text-align: center; border-radius: 15px;">
+                <div class="swiper-slide glass" style="padding: 30px; text-align: center; border-radius: 15px; box-sizing: border-box;">
                     <p style="font-style: italic; margin-bottom: 20px; color: #CBD5E1;">"The best web developer I've ever worked with. The project was delivered on time and exceeded expectations."</p>
                     <h4 style="color: var(--color-primary);">Michael Chen</h4>
                     <span style="font-size: 0.8rem; color: #94A3B8;">Founder, StartupX</span>
                 </div>
-                <div class="swiper-slide glass" style="padding: 30px; text-align: center; border-radius: 15px;">
+                <div class="swiper-slide glass" style="padding: 30px; text-align: center; border-radius: 15px; box-sizing: border-box;">
                     <p style="font-style: italic; margin-bottom: 20px; color: #CBD5E1;">"Stunning aesthetics and flawless performance. Hans is a true master of frontend engineering."</p>
                     <h4 style="color: var(--color-primary);">Emma Watson</h4>
                     <span style="font-size: 0.8rem; color: #94A3B8;">Creative Director</span>
