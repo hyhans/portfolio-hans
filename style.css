@@ -290,6 +290,12 @@ section {
     align-items: center !important;
     padding: 120px 5% 40px 5% !important;
     box-sizing: border-box !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+}
+
+#home * {
+    pointer-events: auto !important;
 }
 
 #home .hero-content,
@@ -563,8 +569,8 @@ footer {
     position: fixed !important;
     bottom: 30px !important;
     right: 30px !important;
-    z-index: 999999 !important; /* Diperkuat supaya selalu paling atas */
-    pointer-events: auto !important; /* Memastikan kebal dari blokiran background */
+    z-index: 999999 !important;
+    pointer-events: auto !important;
 }
 
 #chatbot-toggle {
@@ -755,7 +761,7 @@ footer {
 }
 
 /* =========================================
-   FIX SUPAYA GLOBE 3D MUNCUL DI HOMEPAGE
+   FIX GLOBE 3D SUPAYA BISA DIGESER / DIMAINKAN
    ========================================= */
 #globe-bg {
     position: fixed !important;
@@ -763,8 +769,8 @@ footer {
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    z-index: 1 !important;
-    pointer-events: none !important; /* Diubah jadi none biar gak blok klik */
+    z-index: 0 !important;
+    pointer-events: auto !important; /* Diaktifkan kembali agar bola dunia bisa diputer */
     display: block !important;
 }
 
@@ -837,7 +843,7 @@ footer {
         align-items: center !important;
         justify-content: flex-start !important;
         gap: 20px !important;
-        padding-bottom: 60px !important; /* Tambahan ruang biar gak nabrak chat ai */
+        padding-bottom: 60px !important;
     }
 
     /* Posisi badge Open to Work di tengah HP */
@@ -857,7 +863,7 @@ footer {
         width: 100% !important;
         display: flex !important;
         justify-content: center !important;
-        order: -1 !important; /* Memaksa Foto naik di atas blok teks / about-left */
+        order: -1 !important;
     }
 
     .glow-circle {
@@ -892,10 +898,10 @@ footer {
     #typed-bio {
         font-size: 0.95rem !important;
         margin-bottom: 25px !important;
-        text-align: justify !important; /* Membuat ujung kanan & kiri teks lurus / sejajar */
+        text-align: justify !important;
         min-height: auto !important;
         width: 100% !important;
-        padding: 0 10px !important; /* Biar teks ngga terlalu nempel ke border pinggir layar HP */
+        padding: 0 10px !important;
     }
 
     /* Posisikan tombol aksi di tengah */
